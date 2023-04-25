@@ -1,5 +1,14 @@
 import pygame,sys
 import random
+def yx(): 
+    if posx<=0:
+        sammx=1
+    if posy<=0:
+        sammy=1
+    if posx>=X-snoopy.get_rect().width:
+        sammy=-sammy
+    if posx<=0 or posx>=X-snoopy.get_rect().width:
+         sammx=-sammx
 def esimene():
     global posx,posy
     if posx == 0 and posy == 0:
@@ -85,22 +94,55 @@ posy=Y-snoopy.get_rect().height
 lõpp=False 
 sammx = 2  
 sammy = 0
+functions = [esimene, teine, kolmas]
+
+while not lõpp:
+    valik = random.choice(functions)
+    valik()  
+    
+    kell.tick(60) 
+    events = pygame.event.get() 
+    for i in events: 
+        if i.type == pygame.QUIT: 
+            sys.exit()
+
+ekraan.blit(snoopy,(posx,posy))
+pygame.display.flip() 
+ekraan.fill(roheline)
+pygame.quit
+
+"""while True:
+    valik=int(input("valik:"))
+    if valik==1:
+       esimene 
+    if valik==2:
+        teine
+    if valik==3:
+         kolmas
+    elif valik==4:
+        yx
+
+
+
+
 while not lõpp:
     kell.tick(60) 
     events = pygame.event.get() 
     for i in events: 
         if i.type == pygame.QUIT: 
             sys.exit() 
-        if random.randint(esimene,teine,kolmas):
-            break 
-"""sammx = -2  
+        
+
+        #if random.randint(esimene,teine,kolmas):
+           # break 
+sammx = -2  
 sammy = 0
 while not lõpp:
     kell.tick(60) 
     events = pygame.event.get() 
     for i in events: 
         if i.type == pygame.QUIT: 
-            sys.exit() 
+            sys.exit()
 
    if posx == 0 and posy == 0:
         sammx = 0
@@ -126,12 +168,12 @@ while not lõpp:
    
     pygame.display.flip() 
     ekraan.fill(roheline)
-    pygame.quit"""
+    pygame.quit
 
 
 
 
-"""sammx=2 
+sammx=2 
 sammy=0
 while not lõpp:
     kell.tick(60) 
@@ -159,10 +201,10 @@ while not lõpp:
 
     pygame.display.flip() 
     ekraan.fill(roheline)
-    pygame.quit"""
+    pygame.quit
 
 
-"""sammx=2 
+sammx=2 
 sammy=0
 while not lõpp:
     kell.tick(60) 

@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0e9b6aca-77b1-4fea-830c-dc74b8063b21</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>animerimine.py</StartupFile>
+    <StartupFile>module1.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="animerimine.py" />
+    <Compile Include="module1.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="snoopy.png" />
