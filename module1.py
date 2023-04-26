@@ -3,7 +3,7 @@ import pygame
 import sys
 import random
 
-def yx():
+"""def yx():
     global sammx, sammy, posx, posy, X, snoopy
     if posx <= 0:
         sammx = 2
@@ -73,7 +73,7 @@ def kolmas():
         sammy = -sammy
     posx += sammx
     posy += sammy
-    ekraan.blit(snoopy, (posx, posy )) 
+    ekraan.blit(snoopy, (posx, posy )) """
 
 pygame.init() 
 #värvid
@@ -96,14 +96,54 @@ lõpp=False
 sammx = 2  
 sammy = 0
 
+def animate(saamx, sammy):
+    global pos_x, pos_y
+    while not lõpp:
+        pos_x += sammx
+        pos_y += sammy
+        if pos_x > X - snoopy.get_rect().width or pos_x < 0:
+            sammx = -sammx
+        if pos_y > Y - snoopy.get_rect().height or pos_y < 0:
+            sammy = -sammy
+        kell.tick(60)
+        events = pygame.event.get()
+        for i in events:
+            if i.type == pygame.QUIT:
+                sys.exit()
+
+        ekraan.blit(snoopy, (pos_x, pos_y))
+
+        pygame.display.flip()
+        ekraan.fill(roheline)
+
 while True:
+    print("1 - clockwise")
+    print("2 - seintelt")
+    print("3 - counterclockwise")
+    valik= input("Sisesta number: ")
+    if valik == "1":
+        sammx = 0
+        sammy = -2
+        animate(sammx, sammy)
+    elif valik == "2":
+        sammx = 2
+        sammy = 2
+        animate(sammx, sammy)
+    elif valik == "3":
+        sammx = -2
+        sammy = 0
+        animate(sammx, sammy)
+    else:
+        print("Invalid choice, try again!")
+
+"""while True:
      print("1-päripäeva")
      print("2-erinevates suundades")
      print("3-vastupäeva")
      valik=input("Kirjuta number, mis teeb su tegevuse: ")
      if valik=="1":
         esimene()
-        yx
+        
         while not lõpp:
             kell.tick(60) 
             events = pygame.event.get() 
@@ -150,7 +190,7 @@ while True:
                         pygame.quit
                         break
                 else:
-                    print("Sa valisid ebakorrektse väärtuse")
+                    print("Sa valisid ebakorrektse väärtuse")"""
 """while True:
     
     if valik==1:
